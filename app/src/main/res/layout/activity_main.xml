@@ -1,3 +1,24 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center" android:padding="16dp">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" />
-</LinearLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:background="#FAF5ED">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="@string/cafe_label" android:textColor="#70432B" android:textSize="12sp" android:letterSpacing="0.18" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/app_name" android:textColor="#392619" android:textSize="36sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:text="@string/welcome" android:textColor="#705C4D" android:textSize="16sp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="36dp" android:text="@string/choose_drink" android:textColor="#392619" android:textSize="20sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:text="@string/selection_hint" android:textColor="#705C4D" android:textSize="14sp" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:orientation="horizontal" android:baselineAligned="false">
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTea" style="@style/DrinkButton" />
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnCoffee" style="@style/DrinkButton" />
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnCappuccino" style="@style/DrinkButton" />
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnLatte" style="@style/DrinkButton" />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="32dp" android:text="@string/quantity_label" android:textColor="#392619" android:textSize="20sp" android:textStyle="bold" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="horizontal" android:gravity="center_vertical">
+            <Button android:id="@+id/btnMinus" android:layout_width="56dp" android:layout_height="56dp" android:text="@string/minus" android:contentDescription="@string/decrease_quantity" android:textSize="22sp" />
+            <TextView android:id="@+id/txtQuantity" android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:textColor="#392619" android:textSize="24sp" android:accessibilityLiveRegion="polite" android:saveEnabled="false" />
+            <Button android:id="@+id/btnPlus" android:layout_width="56dp" android:layout_height="56dp" android:text="@string/plus" android:contentDescription="@string/increase_quantity" android:textSize="22sp" />
+        </LinearLayout>
+        <TextView android:id="@+id/txtTotal" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="36dp" android:textColor="#392619" android:textSize="28sp" android:textStyle="bold" android:accessibilityLiveRegion="polite" android:saveEnabled="false" />
+        <Button android:id="@+id/btnPlaceOrder" android:layout_width="match_parent" android:layout_height="60dp" android:layout_marginTop="20dp" android:layout_marginBottom="24dp" android:text="@string/place_order" android:textAllCaps="false" android:textSize="17sp" android:textColor="#FFFFFF" android:backgroundTint="#59351F" />
+    </LinearLayout>
+</ScrollView>

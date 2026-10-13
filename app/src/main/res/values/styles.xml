@@ -8,4 +8,18 @@
         <item name="android:windowLightNavigationBar">true</item>
         <item name="android:windowBackground">#FAF5ED</item>
     </style>
+    <style name="DrinkButton" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">88dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:background">@drawable/drink_background</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textColor">@color/drink_text</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
 </resources>
