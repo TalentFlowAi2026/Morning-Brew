@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Morning Brew</string>
     <string name="cafe_label">THE DAILY CAFE</string>
-    <string name="welcome">A little cup of happiness.</string>
-    <string name="choose_drink">Choose your drink</string>
     <string name="selection_hint">Tap one drink to begin your order.</string>
     <string name="drink_tea">Tea</string>
     <string name="drink_coffee">Coffee</string>
@@ -19,4 +17,9 @@
     <string name="place_order">Place Order</string>
     <string name="order_placed">%1$s × %2$d ordered</string>
     <string name="select_drink_warning">Please pick a drink first.</string>
+    <string name="hero_title">Your morning,\nmade better.</string>
+    <string name="hero_description">Freshly brewed. Just for you.</string>
+    <string name="order_heading">Make it yours</string>
+    <string name="summary_heading">Your order</string>
+    <string name="total_note">Freshly prepared after you order</string>
 </resources>
