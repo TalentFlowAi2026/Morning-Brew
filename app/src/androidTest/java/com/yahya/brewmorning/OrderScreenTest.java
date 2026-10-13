@@ -1,22 +1,28 @@
 package com.yahya.brewmorning;
 
-import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.platform.app.InstrumentationRegistry;
+import org.junit.Rule;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 @SuppressWarnings("deprecation")
-public class OrderScreenTest extends ActivityInstrumentationTestCase2<MainActivity> {
-    public OrderScreenTest() { super(MainActivity.class); }
+public class OrderScreenTest {
+    @Rule public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
+
+    private MainActivity getActivity() { return activityRule.getActivity(); }
 
     private void tap(int id) throws Throwable {
-        runTestOnUiThread(() -> getActivity().findViewById(id).performClick());
-        getInstrumentation().waitForIdleSync();
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> getActivity().findViewById(id).performClick());
+        InstrumentationRegistry.getInstrumentation().waitForIdleSync();
     }
 
     private void assertText(int id, String expected) {
         assertEquals(expected, ((TextView) getActivity().findViewById(id)).getText().toString());
     }
 
-    public void testOrderLifecycleAndAllDrinkTotals() throws Throwable {
+    @Test public void testOrderLifecycleAndAllDrinkTotals() throws Throwable {
         MainActivity activity = getActivity();
         int[] ids = {R.id.btnTea, R.id.btnCoffee, R.id.btnCappuccino, R.id.btnLatte};
         int[] prices = {10, 15, 20, 25};

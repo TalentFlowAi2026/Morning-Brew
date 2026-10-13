@@ -8,8 +8,7 @@
     <string name="drink_coffee">Coffee</string>
     <string name="drink_cappuccino">Cappuccino</string>
     <string name="drink_latte">Latte</string>
-    <string name="drink_format">%1$s
-%2$d</string>
+    <string name="drink_format">%1$s\n%2$d</string>
     <string name="quantity_label">Quantity</string>
     <string name="quantity_format">%1$d</string>
     <string name="increase_quantity">Increase quantity</string>
