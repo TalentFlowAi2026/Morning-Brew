@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Morning Brew</string>
-    <string name="cafe_label">THE DAILY CAFE</string>
-    <string name="selection_hint">Tap one drink to begin your order.</string>
     <string name="drink_tea">Tea</string>
     <string name="drink_coffee">Coffee</string>
     <string name="drink_cappuccino">Cappuccino</string>
@@ -17,16 +15,12 @@
     <string name="place_order">Place Order</string>
     <string name="order_placed">%1$s × %2$d ordered</string>
     <string name="select_drink_warning">Please pick a drink first.</string>
-    <string name="hero_title">Your morning,\nmade better.</string>
-    <string name="hero_description">Freshly brewed. Just for you.</string>
-    <string name="order_heading">Make it yours</string>
-    <string name="summary_heading">Your order</string>
-    <string name="total_note">Freshly prepared after you order</string>
+    <string name="order_heading">Choose a drink</string>
     <string name="size_heading">Choose a size</string>
     <string name="size_small">Small · ×1</string>
     <string name="size_medium">Medium · ×1.5</string>
     <string name="size_large">Large · ×2</string>
-    <string name="extras_heading">A little extra</string>
+    <string name="extras_heading">Extras</string>
     <string name="extra_sugar">Sugar (+%1$d per cup)</string>
     <string name="extra_milk">Milk (+%1$d per cup)</string>
     <string name="pricing_note">Size applies to the drink price. Extras are added per cup.</string>

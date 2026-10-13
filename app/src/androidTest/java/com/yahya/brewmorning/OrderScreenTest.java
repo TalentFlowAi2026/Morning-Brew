@@ -11,7 +11,6 @@ import androidx.test.platform.app.InstrumentationRegistry;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-@SuppressWarnings("deprecation")
 public class OrderScreenTest {
     private ActivityScenario<MainActivity> scenario;
 
