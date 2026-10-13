@@ -49,12 +49,10 @@ as separately tested. The APK is debug signed, not a Play Store release.
 
 ## GitHub status
 
-Remote: https://github.com/YahiaNasrallah/Morning-Brew
-Publication was attempted but GitHub returned 403: the available saved
-credential belonged to TalentFlowAi2026, which cannot write this repository.
-Selecting YahiaNasrallah found no saved credential. No password or token was
-requested in chat. Publish-to-GitHub.bat performs a normal, non-force push
-after the owner signs in. Source history includes the standalone starter;
-the trainer's own starter was never supplied.
+Published successfully on 13 October 2026 to
+https://github.com/TalentFlowAi2026/Morning-Brew (branch master).
+The user changed the destination from the earlier inaccessible repository.
+The trainer's original starter was not supplied; history starts with the
+documented standalone starter. Local source and remote are verified by SHA.
 
 Video duration: 60.0 seconds.

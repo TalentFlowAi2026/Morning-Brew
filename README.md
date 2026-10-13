@@ -4,7 +4,7 @@ Java + XML Views cafe order app. Package: `com.yahya.brewmorning`.
 
 ## Run in Android Studio
 
-Clone `https://github.com/YahiaNasrallah/Morning-Brew.git` or extract the ZIP.
+Clone `https://github.com/TalentFlowAi2026/Morning-Brew.git` or extract the ZIP.
 Open the root folder containing settings.gradle and sync Gradle. Install
 JDK 21 and Android SDK Platform 36. Select the app configuration and Run.
 The wrapper pins Gradle 8.14, AGP 8.13.1; the daemon criteria pin Java 21.
@@ -13,7 +13,7 @@ IDE still shows its previous error, close/reopen the project and sync.
 Minimum Android API 23; target 35; compile 36. Tested with the API 37 emulator.
 
 ```sh
-git clone https://github.com/YahiaNasrallah/Morning-Brew.git
+git clone https://github.com/TalentFlowAi2026/Morning-Brew.git
 cd Morning-Brew
 ```
 
@@ -70,5 +70,4 @@ stretch goals, with saved state added as explicitly requested.
 - [Portrait screenshot](deliverables/Portrait.png)
 
 To publish this local repository, run Publish-to-GitHub.bat and sign in as
-YahiaNasrallah. The automated attempt was denied because the previously
-saved Git credential belonged to a different account. See VERIFICATION.md.
+TalentFlowAi2026. The project has been published to this repository. See VERIFICATION.md.
