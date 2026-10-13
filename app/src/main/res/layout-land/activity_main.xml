@@ -1,39 +1,32 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:padding="12dp" android:baselineAligned="false">
-    <ScrollView android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:fillViewport="true" android:layout_margin="6dp">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:text="@string/order_heading" android:textColor="#35251F" android:textSize="23sp" android:textStyle="bold" />
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal" android:baselineAligned="false">
-                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTea" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
-                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnCoffee" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
-                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnCappuccino" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
-                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnLatte" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
-            </LinearLayout>
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="@string/size_heading" android:textColor="#35251F" android:textSize="20sp" android:textStyle="bold" />
-            <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
-                <RadioButton android:id="@+id/sizeSmall" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/size_small" android:textSize="12sp" android:saveEnabled="false" />
-                <RadioButton android:id="@+id/sizeMedium" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/size_medium" android:textSize="12sp" android:saveEnabled="false" />
-                <RadioButton android:id="@+id/sizeLarge" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/size_large" android:textSize="12sp" android:saveEnabled="false" />
-            </RadioGroup>
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="@string/extras_heading" android:textColor="#35251F" android:textSize="20sp" android:textStyle="bold" />
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <CheckBox android:id="@+id/checkSugar" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:textSize="12sp" android:saveEnabled="false" />
-                <CheckBox android:id="@+id/checkMilk" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:textSize="12sp" android:saveEnabled="false" />
-            </LinearLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="horizontal" android:padding="12dp" android:baselineAligned="false"><ScrollView android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:fillViewport="true" android:layout_margin="6dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:text="@string/order_heading" android:textColor="#35251F" android:textSize="23sp" android:textStyle="bold" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal" android:baselineAligned="false">
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTea" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnCoffee" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnCappuccino" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnLatte" style="@style/DrinkButton" android:layout_height="88dp" android:drawableTop="@null" />
         </LinearLayout>
-    </ScrollView>
-    <ScrollView android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:fillViewport="true" android:layout_margin="6dp">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:layout_marginBottom="10dp" android:orientation="vertical" android:padding="16dp">
-                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal" android:gravity="center_vertical">
-                    <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/quantity_label" android:textColor="#7E6B5A" android:textSize="15sp" />
-                    <Button android:id="@+id/btnMinus" style="@style/StepButton" android:text="@string/minus" android:contentDescription="@string/decrease_quantity" />
-                    <TextView android:id="@+id/txtQuantity" android:layout_width="44dp" android:layout_height="wrap_content" android:gravity="center" android:textColor="#35251F" android:textSize="21sp" android:textStyle="bold" android:accessibilityLiveRegion="polite" android:saveEnabled="false" />
-                    <Button android:id="@+id/btnPlus" style="@style/StepButton" android:text="@string/plus" android:contentDescription="@string/increase_quantity" />
-                </LinearLayout>
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:background="#EFE7DD" />
-                <TextView android:id="@+id/txtTotal" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#35251F" android:textSize="28sp" android:textStyle="bold" android:accessibilityLiveRegion="polite" android:saveEnabled="false" />
-                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnPlaceOrder" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="10dp" android:text="@string/place_order" android:textAllCaps="false" android:textSize="16sp" android:textStyle="bold" android:textColor="#FFFFFF" android:background="@drawable/action_background" style="@style/OrderButton" />
-            </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="@string/size_heading" android:textColor="#35251F" android:textSize="20sp" android:textStyle="bold" />
+        <RadioGroup android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+            <RadioButton android:id="@+id/sizeSmall" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/size_small" android:textSize="12sp" android:saveEnabled="false" />
+            <RadioButton android:id="@+id/sizeMedium" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/size_medium" android:textSize="12sp" android:saveEnabled="false" />
+            <RadioButton android:id="@+id/sizeLarge" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/size_large" android:textSize="12sp" android:saveEnabled="false" />
+        </RadioGroup>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:text="@string/extras_heading" android:textColor="#35251F" android:textSize="20sp" android:textStyle="bold" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <CheckBox android:id="@+id/checkSugar" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:textSize="12sp" android:saveEnabled="false" />
+            <CheckBox android:id="@+id/checkMilk" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:textSize="12sp" android:saveEnabled="false" />
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        </LinearLayout></ScrollView><ScrollView android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:fillViewport="true" android:layout_margin="6dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:layout_marginBottom="10dp" android:orientation="vertical" android:background="@drawable/panel_background" android:padding="16dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/summary_heading" android:textColor="#35251F" android:textSize="21sp" android:textStyle="bold" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/quantity_label" android:textColor="#7E6B5A" android:textSize="15sp" />
+                <Button android:id="@+id/btnMinus" style="@style/StepButton" android:text="@string/minus" android:contentDescription="@string/decrease_quantity" />
+                <TextView android:id="@+id/txtQuantity" android:layout_width="44dp" android:layout_height="wrap_content" android:gravity="center" android:textColor="#35251F" android:textSize="21sp" android:textStyle="bold" android:accessibilityLiveRegion="polite" android:saveEnabled="false" />
+                <Button android:id="@+id/btnPlus" style="@style/StepButton" android:text="@string/plus" android:contentDescription="@string/increase_quantity" />
+            </LinearLayout>
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="10dp" android:layout_marginBottom="10dp" android:background="#EFE7DD" />
+            <TextView android:id="@+id/txtTotal" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#35251F" android:textSize="28sp" android:textStyle="bold" android:accessibilityLiveRegion="polite" android:saveEnabled="false" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/total_note" android:textColor="#7E6B5A" android:textSize="12sp" />
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnPlaceOrder" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="10dp" android:text="@string/place_order" android:textAllCaps="false" android:textSize="16sp" android:textStyle="bold" android:textColor="#FFFFFF" android:background="@drawable/action_background" style="@style/OrderButton" />
+        </LinearLayout>
+    </LinearLayout></ScrollView></LinearLayout>

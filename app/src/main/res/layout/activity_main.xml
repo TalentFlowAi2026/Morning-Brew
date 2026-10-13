@@ -1,7 +1,22 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:clipToPadding="false">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:clipToPadding="false">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/app_name" android:textSize="28sp" android:textColor="#392619" android:textStyle="bold" android:layout_marginTop="12dp" android:layout_marginBottom="16dp" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="0dp" android:text="@string/order_heading" android:textColor="#35251F" android:textSize="18sp" android:textStyle="bold" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginTop="12dp" android:layout_marginBottom="24dp">
+            <ImageView android:layout_width="44dp" android:layout_height="44dp" android:src="@drawable/ic_brand" android:importantForAccessibility="no" />
+            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginStart="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" android:textColor="#35251F" android:textSize="23sp" android:textStyle="bold" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/cafe_label" android:textColor="#8C6C50" android:textSize="11sp" android:letterSpacing="0.18" android:layout_marginTop="3dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="24dp" android:background="@drawable/hero_background">
+            <LinearLayout android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/hero_title" android:textColor="#FFF5E7" android:textSize="28sp" android:textStyle="bold" android:lineSpacingExtra="3dp" />
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="@string/hero_description" android:textColor="#E8C7A5" android:textSize="13sp" />
+            </LinearLayout>
+            <ImageView android:layout_width="76dp" android:layout_height="92dp" android:src="@drawable/ic_cup" android:layout_marginStart="10dp" android:importantForAccessibility="no" />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="28dp" android:text="@string/order_heading" android:textColor="#35251F" android:textSize="23sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/selection_hint" android:textColor="#7E6B5A" android:textSize="13sp" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:orientation="horizontal" android:baselineAligned="false">
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTea" style="@style/DrinkButton" />
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnCoffee" style="@style/DrinkButton" />
@@ -20,7 +35,8 @@
             <CheckBox android:id="@+id/checkMilk" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:minHeight="48dp" android:textSize="12sp" android:saveEnabled="false" />
         </LinearLayout>
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/pricing_note" android:textColor="#7E6B5A" android:textSize="12sp" />
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:layout_marginBottom="16dp" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:layout_marginBottom="16dp" android:orientation="vertical" android:background="@drawable/panel_background" android:padding="20dp">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/summary_heading" android:textColor="#35251F" android:textSize="21sp" android:textStyle="bold" />
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="18dp" android:orientation="horizontal" android:gravity="center_vertical">
                 <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:text="@string/quantity_label" android:textColor="#7E6B5A" android:textSize="15sp" />
                 <Button android:id="@+id/btnMinus" style="@style/StepButton" android:text="@string/minus" android:contentDescription="@string/decrease_quantity" />
@@ -29,6 +45,7 @@
             </LinearLayout>
             <View android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="18dp" android:layout_marginBottom="18dp" android:background="#EFE7DD" />
             <TextView android:id="@+id/txtTotal" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="#35251F" android:textSize="28sp" android:textStyle="bold" android:accessibilityLiveRegion="polite" android:saveEnabled="false" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp" android:text="@string/total_note" android:textColor="#7E6B5A" android:textSize="12sp" />
             <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnPlaceOrder" android:layout_width="match_parent" android:layout_height="56dp" android:layout_marginTop="20dp" android:text="@string/place_order" android:textAllCaps="false" android:textSize="16sp" android:textStyle="bold" android:textColor="#FFFFFF" android:background="@drawable/action_background" style="@style/OrderButton" />
         </LinearLayout>
     </LinearLayout>

@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int[] DRINK_NAMES = {R.string.drink_tea, R.string.drink_coffee,
             R.string.drink_cappuccino, R.string.drink_latte};
     private static final int[] DRINK_PRICES = {10, 15, 20, 25};
-    private static final int[] SIZE_HALF_UNITS = {2, 3, 4};
+    private static final int[] SIZE_PERCENTAGES = {100, 150, 200};
     private static final int SUGAR_PRICE = 2;
     private static final int MILK_PRICE = 3;
     private static final String DRAFT = "order_draft";
@@ -42,12 +42,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         applyInsets();
         preferences = getSharedPreferences(DRAFT, MODE_PRIVATE);
-        restoreOrder(savedInstanceState);
+        loadOrder();
         bindViews();
         configureDrinks();
         configureOptions();
         configureActions();
-        renderOrder();
+        updateScreen();
     }
 
     private void applyInsets() {
@@ -58,15 +58,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void restoreOrder(Bundle state) {
-        selectedDrink = state == null ? preferences.getInt(DRINK, -1) : state.getInt(DRINK, -1);
-        quantity = state == null ? preferences.getInt(QUANTITY, 1) : state.getInt(QUANTITY, 1);
-        selectedSize = state == null ? preferences.getInt(SIZE, 0) : state.getInt(SIZE, 0);
-        sugar = state == null ? preferences.getBoolean(SUGAR, false) : state.getBoolean(SUGAR, false);
-        milk = state == null ? preferences.getBoolean(MILK, false) : state.getBoolean(MILK, false);
+    private void loadOrder() {
+        selectedDrink = preferences.getInt(DRINK, -1);
+        quantity = Math.max(1, preferences.getInt(QUANTITY, 1));
+        selectedSize = preferences.getInt(SIZE, 0);
+        sugar = preferences.getBoolean(SUGAR, false);
+        milk = preferences.getBoolean(MILK, false);
         if (selectedDrink < -1 || selectedDrink >= DRINK_NAMES.length) selectedDrink = -1;
-        if (selectedSize < 0 || selectedSize >= SIZE_HALF_UNITS.length) selectedSize = 0;
-        quantity = Math.max(1, quantity);
+        if (selectedSize < 0 || selectedSize >= SIZE_PERCENTAGES.length) selectedSize = 0;
     }
 
     private void bindViews() {
@@ -127,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnPlaceOrder).setOnClickListener(view -> placeOrder());
     }
 
-    private void renderOrder() {
+    private void updateScreen() {
         for (int index = 0; index < drinkButtons.length; index++)
             drinkButtons[index].setSelected(index == selectedDrink);
         for (int index = 0; index < sizeButtons.length; index++)
@@ -147,25 +146,17 @@ public class MainActivity extends AppCompatActivity {
 
     private long calculateTotalCents() {
         if (selectedDrink < 0) return 0;
-        long cupCents = DRINK_PRICES[selectedDrink] * 50L * SIZE_HALF_UNITS[selectedSize];
+        // Multiplying the price by the size percentage gives the price in cents.
+        long cupCents = (long) DRINK_PRICES[selectedDrink] * SIZE_PERCENTAGES[selectedSize];
         if (sugar) cupCents += SUGAR_PRICE * 100L;
         if (milk) cupCents += MILK_PRICE * 100L;
         return cupCents * quantity;
     }
 
     private void orderChanged() {
-        renderOrder();
+        updateScreen();
         preferences.edit().putInt(DRINK, selectedDrink).putInt(QUANTITY, quantity)
                 .putInt(SIZE, selectedSize).putBoolean(SUGAR, sugar).putBoolean(MILK, milk).apply();
-    }
-
-    @Override protected void onSaveInstanceState(Bundle state) {
-        state.putInt(DRINK, selectedDrink);
-        state.putInt(QUANTITY, quantity);
-        state.putInt(SIZE, selectedSize);
-        state.putBoolean(SUGAR, sugar);
-        state.putBoolean(MILK, milk);
-        super.onSaveInstanceState(state);
     }
 
     private void placeOrder() {
