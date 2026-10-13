@@ -22,4 +22,13 @@
     <string name="order_heading">Make it yours</string>
     <string name="summary_heading">Your order</string>
     <string name="total_note">Freshly prepared after you order</string>
+    <string name="size_heading">Choose a size</string>
+    <string name="size_small">Small · ×1</string>
+    <string name="size_medium">Medium · ×1.5</string>
+    <string name="size_large">Large · ×2</string>
+    <string name="extras_heading">A little extra</string>
+    <string name="extra_sugar">Sugar (+%1$d per cup)</string>
+    <string name="extra_milk">Milk (+%1$d per cup)</string>
+    <string name="pricing_note">Size applies to the drink price. Extras are added per cup.</string>
+    <string name="total_decimal_format">Total: %1$d.%2$02d</string>
 </resources>
