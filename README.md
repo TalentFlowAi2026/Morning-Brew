@@ -1,97 +1,63 @@
 # Morning Brew
 
-Week 1 Android assignment implemented with **Java + XML Views**, using one
-AppCompatActivity and nested LinearLayouts. App name: **Morning Brew**.
-Application ID and namespace: **com.yahya.brewmorning**.
+Java + XML Views cafe order app. Package: `com.yahya.brewmorning`.
 
-## Open in Android Studio
+## Run in Android Studio
 
-1. Extract the project ZIP into a writable folder.
-2. Choose **Open** in Android Studio and select the `MorningBrew` directory
-   containing `settings.gradle` (not just its `app` folder).
-3. Allow Gradle sync, install Android SDK Platform 36 if prompted, and use
-   JDK 17 or 21 as the Gradle JDK. The delivery was built with JDK 21.
-4. Select the `app` configuration and an emulator/device running Android 6.0
-   (API 23) or newer, then press Run.
-
-The wrapper pins Gradle 8.14; the project pins Android Gradle Plugin 8.13.1,
-compile SDK 36 and target SDK 35. Android Studio supplies the SDK location in
-`local.properties`; that machine-specific file is intentionally not shipped.
-Internet access is needed on the first build to download dependencies.
-
-## Clone, build and test
-
-The ZIP includes a local `.git` repository with the actual implementation
-history. No GitHub remote was supplied or published. To make a clean clone:
+Clone `https://github.com/YahiaNasrallah/Morning-Brew.git` or extract the ZIP.
+Open the root folder containing settings.gradle and sync Gradle. Install
+JDK 21 and Android SDK Platform 36. Select the app configuration and Run.
+The wrapper pins Gradle 8.14, AGP 8.13.1; the daemon criteria pin Java 21.
+This resolves Android Studio's bundled Java 25 incompatibility. If an open
+IDE still shows its previous error, close/reopen the project and sync.
+Minimum Android API 23; target 35; compile 36. Tested with the API 37 emulator.
 
 ```sh
-git clone /path/to/extracted/MorningBrew MorningBrew-clean
-cd MorningBrew-clean
+git clone https://github.com/YahiaNasrallah/Morning-Brew.git
+cd Morning-Brew
 ```
 
-Configure your SDK through Android Studio, `ANDROID_HOME`, or an untracked
-`local.properties` containing `sdk.dir=/path/to/Android/Sdk`.
+Windows: `gradlew.bat assembleDebug lintDebug`
+macOS/Linux: `./gradlew assembleDebug lintDebug`
+Device tests: `gradlew.bat connectedDebugAndroidTest` (Windows) or
+`./gradlew connectedDebugAndroidTest` (macOS/Linux).
+Configure your SDK using Android Studio, ANDROID_HOME or an untracked
+local.properties. First builds require internet for dependencies.
+APK: app/build/outputs/apk/debug/app-debug.apk.
 
-Windows:
+## Features and pricing
 
-```bat
-gradlew.bat assembleDebug lintDebug
-gradlew.bat connectedDebugAndroidTest
-```
+- Tea 10, Coffee 15, Cappuccino 20, Latte 25; one highlighted selection.
+- First use starts without a drink, with quantity 1, Small size and no extras.
+- Small multiplies the base price by 1; Medium by 1.5; Large by 2.
+- Sugar costs 2 and milk costs 3 per cup. The assignment does not specify
+  add-on prices, so these are documented implementation choices.
+- Total = (base price × size multiplier + selected extras) × quantity.
+  Integer hundredths avoid floating-point rounding; fractional totals show
+  two decimal places. No currency is invented because the task gives none.
+- Minus stays enabled at 1 and safely does nothing. Large quantities use
+  long arithmetic; plus cannot overflow the quantity integer.
+- A warning Toast handles no selection. A valid order Toast names the drink
+  and quantity, then clears drink, quantity, size, extras and saved draft.
+- Dedicated landscape XML provides two columns with independent scrolling
+  when necessary. Portrait has a polished coffee theme and scrollable content.
+- Draft survives rotation, activity recreation, process termination and
+  reopening via Bundle plus private SharedPreferences. A confirmed order
+  leaves defaults for the next launch. This intentionally goes beyond the
+  original Week 1 rotation limitation at the user's request.
+- All UI strings are in strings.xml; every source layout ID is referenced
+  in MainActivity. UI is XML, not Compose or programmatically constructed.
 
-macOS/Linux:
+## Evidence and submission
 
-```sh
-./gradlew assembleDebug lintDebug
-./gradlew connectedDebugAndroidTest
-```
+See VERIFICATION.md for actual test results and SUBMISSION_CHECKLIST.md for
+remaining personal trainee steps. The deliverables folder contains the
+debug APK, demo recording and screenshots when packaged for delivery.
+The repository includes more than 8 meaningful commits, beginning with an
+empty standalone Java/XML starter. The trainer's own starter was not supplied;
+this origin cannot truthfully be represented as the trainer starter.
 
-Device tests require one running emulator or connected, authorized device.
-APK output: `app/build/outputs/apk/debug/app-debug.apk`.
-It is a debug-signed APK suitable for installation and assessment.
-
-## Screen behavior
-
-- Tea 10, Coffee 15, Cappuccino 20 and Latte 25 appear in one row.
-- Launch: no selection, quantity 1, total 0.
-- Tapping a drink replaces the current selection. Selected buttons have a
-  dark brown background and white text; unselected buttons are white.
-- Plus/minus update quantity and total immediately. Minus at 1 stays enabled
-  and does nothing. Plus is guarded against integer overflow; multiplication
-  uses `long` to avoid price overflow.
-- Place Order without a selection shows a warning Toast and keeps the state.
-- A valid order shows the drink and quantity in a Toast, then clears selection,
-  restores quantity 1 and immediately displays total 0.
-- All visible strings, including numeric format templates, come from
-  `strings.xml`. Prices are integers in Java, never literal text in the layout.
-- All nine layout IDs are referenced in Java. No Compose or programmatic UI.
-
-## Files to study or adapt into your own starter
-
-- `app/src/main/java/com/yahya/brewmorning/MainActivity.java`
-- `app/src/main/res/layout/activity_main.xml`
-- `app/src/main/res/values/strings.xml`
-- `app/src/main/res/values/styles.xml`
-- `app/src/main/res/drawable/drink_background.xml`
-- `app/src/main/res/color/drink_text.xml`
-
-No existing Android Studio starter was provided, so this is a standalone
-project. If adapting it, also match the applicationId, namespace, source
-directory and manifest activity name. Modern AGP defines the manifest package
-from `namespace`/`applicationId`; adding a legacy source-manifest `package`
-attribute is unsupported. The merged manifest and installed app have the
-required package `com.yahya.brewmorning`.
-
-## Known Week 1 limitation
-
-Rotation or activity recreation resets the order. This is deliberate: the
-assignment explicitly postpones saved state until Week 5. No size/add-on
-stretch features were added.
-
-## Submission items requiring the trainee
-
-Publish the included repository to your own GitHub account and share its URL.
-The initial commit is a newly created standalone starter, not the unavailable
-trainer starter. Supply your own baseline reflection, grade and questions to
-the trainer; these personal learning claims cannot be filled in for you.
-See `VERIFICATION.md` for checks actually run and delivery evidence.
+The PDF's discussion of Pizza Palace, booking gates, databases and TrendHub
+introduces later assignments; it does not provide their implementation specs.
+This project completes all executable Morning Brew requirements and all three
+stretch goals, with saved state added as explicitly requested.
