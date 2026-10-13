@@ -61,3 +61,14 @@ The PDF's discussion of Pizza Palace, booking gates, databases and TrendHub
 introduces later assignments; it does not provide their implementation specs.
 This project completes all executable Morning Brew requirements and all three
 stretch goals, with saved state added as explicitly requested.
+
+## Ready-to-submit files
+
+- [Debug APK](deliverables/Morning-Brew.apk)
+- [One-minute demo](deliverables/Morning-Brew-Demo.mp4)
+- [Landscape screenshot](deliverables/Landscape.png)
+- [Portrait screenshot](deliverables/Portrait.png)
+
+To publish this local repository, run Publish-to-GitHub.bat and sign in as
+YahiaNasrallah. The automated attempt was denied because the previously
+saved Git credential belonged to a different account. See VERIFICATION.md.

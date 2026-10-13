@@ -24,7 +24,7 @@ additional apps; no Pizza Palace, booking app or TrendHub is claimed here.
 - XML/static audit: portrait and landscape have the same 14 IDs, all used
   in Java. Every text/content description uses a string resource. XML parses.
 - Java 21 daemon was previously verified with Android Studio's Java 25
-  launcher. Final source will also be built from a fresh Git checkout.
+  launcher. Final source was also built from a fresh Git checkout: assembleDebug and lintDebug passed with all 45 tasks executed, using installed SDK/dependency caches.
 
 ## Real emulator interaction
 
@@ -56,3 +56,5 @@ Selecting YahiaNasrallah found no saved credential. No password or token was
 requested in chat. Publish-to-GitHub.bat performs a normal, non-force push
 after the owner signs in. Source history includes the standalone starter;
 the trainer's own starter was never supplied.
+
+Video duration: 60.0 seconds.
