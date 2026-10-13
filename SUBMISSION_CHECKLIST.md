@@ -19,8 +19,10 @@
 4. Tell the trainer that a standalone starter was used because their original
    starter was not provided, and that you requested all stretch features and
    saved state. Ask whether they also want your work applied to their starter.
-5. If GitHub publication requires sign-in, complete it on your own device;
-   do not send passwords or access tokens in chat.
+5. Double-click Publish-to-GitHub.bat and sign in as YahiaNasrallah. The saved
+   credential was for TalentFlowAi2026, so the attempted push was denied (403).
+   The script uses a normal push and will not overwrite remote history.
+   Do not send passwords or access tokens in chat.
 
 The training instruction to ask for help within 30 minutes and your personal
 learning reflections are process/learning criteria, not app features. They

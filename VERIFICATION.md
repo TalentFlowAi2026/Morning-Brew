@@ -1,42 +1,58 @@
-# Verification — 13 October 2026
+# Final verification — 13 October 2026
 
-## Checks actually completed
+## Implemented scope
 
-- Debug APK built with Gradle 8.14, AGP 8.13.1 and JDK 21.
-- Fresh local Git clone: `assembleDebug lintDebug` succeeded, all 45 tasks
-  executed. Used the installed SDK and dependency cache; this was not an
-  empty-cache download test.
-- Medium Phone emulator, Android 17 / API 37: device acceptance suite passed
-  (1 test, 0 failures, 0 errors, 0 skipped). Covers all four prices at quantities
-  1 through 10, decrement totals, exclusive selection, defaults, minus at 1
-  remaining enabled, no-selection ordering, two valid orders, full resets,
-  and quantity changes without selection keeping total 0.
-- Installed APK and opened launcher activity successfully.
-- Visually inspected initial and highlighted selection screenshots, warning
-  Toast, and `Latte × 3 ordered` with quantity 1, total 0 and selection cleared
-  visible behind it.
-- Recorded a 60-second emulator video with real touch input showing warning,
-  all four selections, increment, decrement, order, reset and a second order.
-- Source audit: all XML parses, all 9 layout IDs referenced in Java, no Java
-  string literals, all layout text and descriptions use string resources.
+All Morning Brew base requirements and all three stretch goals: sizes
+Small/Medium/Large (×1/×1.5/×2), sugar and milk with visible per-cup pricing,
+and a dedicated landscape layout. Draft persistence was added at the user's
+request, overriding the PDF's instruction to defer rotation handling.
+The PDF's introductions to later projects are not full specifications for
+additional apps; no Pizza Palace, booking app or TrendHub is claimed here.
 
-## Lint
+## Automated checks
 
-0 errors, 9 warnings; no baseline or blanket suppression. Warnings concern
-target SDK age (35), newer Gradle/library versions (4), a plural heuristic
-for the English order message, backup configuration advice for a stateless
-app, background overdraw, and no custom launcher icon. Android supplies a
-generic icon. Dependencies remain pinned to the tested toolchain.
+- assembleDebug and lintDebug: BUILD SUCCESSFUL.
+- connectedDebugAndroidTest on Android 17 / API 37 Medium Phone emulator:
+  3 tests, 0 failures, 0 errors, 0 skipped.
+- Base acceptance test covers all four drinks at quantities 1–10, increment,
+  decrement, safe minimum, exclusive selection, empty selection warning,
+  repeated orders and reset.
+- Options test covers every combination of 4 drinks × 3 sizes × 4 extra
+  combinations at quantities 1 and 2, including fractional totals and reset.
+- Lifecycle test recreates and relaunches the screen, checking drink,
+  quantity, size, both extras and total; checks cleared state after order.
+- XML/static audit: portrait and landscape have the same 14 IDs, all used
+  in Java. Every text/content description uses a string resource. XML parses.
+- Java 21 daemon was previously verified with Android Studio's Java 25
+  launcher. Final source will also be built from a fresh Git checkout.
 
-## Limits and remaining submission work
+## Real emulator interaction
 
-Runtime tested only on the available API 37 emulator. API 23, physical devices,
-landscape, large font settings and screen readers were not separately tested.
-Rotation/activity recreation resets the order as required for Week 1.
-The APK is debug signed, not a Play Store release artifact.
+- Installed and opened debug APK.
+- Coffee + Medium + sugar + milk, quantity 2 = 55.
+- Force-stopped the app process and relaunched: all draft fields and total
+  restored correctly.
+- Rotated portrait and landscape: fields and total preserved.
+- Landscape controls fit the tested emulator in two columns. Portrait is
+  scrollable so the complete order and all options remain reachable.
+- Recorded roughly one minute showing warning, options, quantity up/down,
+  valid order, complete reset and a second valid order.
 
-The included Git repository has more than 8 meaningful local commits. No
-GitHub destination was provided, so no remote repository was published.
-The original starter was unavailable; the initial commit is a clearly labeled
-new standalone starter. Personal reflections, self-grading and questions to
-the trainer remain for the trainee to complete honestly.
+## Lint and limits
+
+0 errors, 11 non-blocking warnings: pinned tool/library/target versions (6),
+plural heuristics for English messages (3), backup advice (1), and a redundant
+landscape container (1). No blanket suppression or baseline hides errors.
+API 23, physical devices, screen readers and emulator reboot were not tested.
+Persistent preferences are stored on disk, but reboot behavior is not claimed
+as separately tested. The APK is debug signed, not a Play Store release.
+
+## GitHub status
+
+Remote: https://github.com/YahiaNasrallah/Morning-Brew
+Publication was attempted but GitHub returned 403: the available saved
+credential belonged to TalentFlowAi2026, which cannot write this repository.
+Selecting YahiaNasrallah found no saved credential. No password or token was
+requested in chat. Publish-to-GitHub.bat performs a normal, non-force push
+after the owner signs in. Source history includes the standalone starter;
+the trainer's own starter was never supplied.
