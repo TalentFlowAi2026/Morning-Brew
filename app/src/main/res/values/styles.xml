@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.MorningBrew" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="colorAccent">#70432B</item>
+        <item name="android:statusBarColor">#FAF5ED</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">#FAF5ED</item>
+        <item name="android:windowLightNavigationBar">true</item>
+        <item name="android:windowBackground">#FAF5ED</item>
+    </style>
+</resources>
